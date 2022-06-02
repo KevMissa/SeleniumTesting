@@ -2,6 +2,7 @@ package testcases;
 
 import org.openqa.selenium.By;
 
+
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,14 +15,18 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBrowsers {
 	public static void main(String[] args) throws InterruptedException {
+		
 		WebDriverManager.chromedriver().setup();
+		
 		WebDriver driver = new ChromeDriver();
+		
 		driver.manage().window().maximize();
 		Thread.sleep(2000);
 		driver.get("https://shopdisney.com");
 		String title = driver.getTitle();
 		System.out.println(title.toUpperCase());
 		Thread.sleep(2000);
+		
 		WebElement Clothing = driver.findElement(By.xpath("(//*[contains (text(),\"Clothing\" )])[5]"));
 		WebElement ClothingContainer = driver.findElement(By.xpath("(//a[@id=\"clothing\"])[1]"));
 		Actions actions = new Actions(driver);
